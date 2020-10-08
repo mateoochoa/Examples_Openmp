@@ -1,9 +1,9 @@
-# OpenMp Repository
+# OpenMP Repository
 
 El presente GIT tiene como objetivo presentar el desarrollo de algoritmos basados en la implementacion de directivas OpenMP. De acuerdo a los requerimientos de la materia Fundamentos de Programación Paralela en la Universidad Sergio Arboleda, los cuales constan de realizar una explicación para cada código propuesto con su respectiva documentacion, además de la profundizacion de su contenido.
 
 Este trabajo se basa en los ejemplos planteados por el usuario muatik de github
-en el repositorio: https://github.com/mateoochoa/Examples_Openmp.git
+en el repositorio: https://github.com/muatik/openmp-examples
 
 [![OpenMP](https://www.openmp.org/wp-content/uploads/openmp-enabling-hpc-since-1997.png)](https://www.openmp.org/)
 
@@ -28,29 +28,27 @@ memoria compartida que permite:
 
 # Caracteristicas Generales
 
-  - is simply dummy text of the printing and typesetting
-  - is simply dummy text of the printing and typesetting
+  - Implementacion multiple de directivas y clausulas de procesamiento.
+  - Comparativa de rendimiento para aplicacion multi-hilo en diferentes aplicaiones
 
 Cambios significativos:
-  - Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-  - Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-  - Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+  - Migracion del codigo de C++ a C99. 
+  - Habilitacion de regiones comparativas de acuerdo a las diferentes operaciones.
+  - Documentacion general del funcionamiento para cada algoritmo.
 
-El codigo para cada modulo generado ha sido revisado y profundizado a modo de mejora con el proposito de caracterizar su funcionamiento respecto de:  [Markdown site][df1]
+El codigo para cada modulo generado, ha sido revisado y profundizado a modo de mejora con el proposito de caracterizar su funcionamiento respecto de: 
 
 > Optimizacion de regiones Paralelas.
 > Implementacion de memoria compartida entre hilos.
 > Calculacion y uso de los conceptos.
 > Consumo de manera segura entre subprocesos.
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
 
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
+
+
 
 ### Documentacion Tecnica
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+En las diferentes secciones se conserva el algoritmo original igualmente documentado, pero no hace uso completo de las funciones contenidas. Posteriormente al entendimiento se hace la migracion del lenguaje y se ponen en funcionamiento todas las secciones del codigo para conocer su aplicacion de forma comparativa.
 
 ### Instalacion
 
@@ -59,34 +57,28 @@ El algoritmo de als-movies requiere del uso adicional del paquete [Eigen](http:/
 No es necesaria la instalacion de dependencias adicionales. Para la compilacion en general de los demas algoritmos es necesario la implementacion de los comandos basicos para importar el OpenMP haciendo uso de G++.
 
 ```sh
-$  g++ main.cpp -fopenmp
+$  gcc main.c -fopenmp
 ```
 
 ### Desarrollo
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-#### Building con CMake
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 #### Contribucion y Colaboradores:
 
 Agradecimientos a [ muatik](https://github.com/muatik/openmp-examples) como creador base del contenido en este repositorio.
 
-### Todos
-
- - Write MORE Tests
- - Add Night Mode
 
 Licencia 
 ----
 
-GNU
+GNU General Public License V3
 
 
 **Free Software, Hell Yeah!**
 
-[//]: 
+
    [Luis Mateo Ochoa Cañon]: <https://github.com/mateoochoa>
    [Miguel Angel Ruiz Torres]: <https://github.com/miguelanruiz>
    
