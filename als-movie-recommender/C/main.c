@@ -1,6 +1,10 @@
-/* 
-*
-*/
+/*************************************************************************************/
+/*            Author: Mustafa Atik                                                   */
+/*          Location: Berlin / Germany                                               */
+/*           Contact: muatik@gmail.com                                               */
+/*  Code reviewed by: Miguel Angel and Luis Mateo                                    */
+/*                                                                                   */
+/*                                                                                   */
 
 #include "binary_library.h"
 #include <stdio.h>

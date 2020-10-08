@@ -39,7 +39,7 @@ void avg_round_robin() {
 }
 
 void  avg_reduction() {
-    int N = 600000000;
+    int N = 600000000; //600 M
     int j = 0;
     double tavg = 0;
 

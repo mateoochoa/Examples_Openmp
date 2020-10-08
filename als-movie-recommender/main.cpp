@@ -2,7 +2,7 @@
 #include <Eigen/Dense>
 //#include <mpi.h>
 #include <fstream>
-#include <ntsid.h>
+//#include <ntsid.h>
 #include <omp.h>
 #include <vector>
 
