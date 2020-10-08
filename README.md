@@ -54,7 +54,7 @@ En las diferentes secciones se conserva el algoritmo original igualmente documen
 
 El algoritmo de als-movies requiere del uso adicional del paquete [Eigen](http://robots.uc3m.es/gitbook-installation-guides/install-eigen.html) para ser compilado y ejecutado.
 
-No es necesaria la instalacion de dependencias adicionales. Para la compilacion en general de los demas algoritmos es necesario la implementacion de los comandos basicos para importar el OpenMP haciendo uso de G++.
+No es necesaria la instalacion de dependencias adicionales. Para la compilacion en general de los demas algoritmos es necesario la implementacion de los comandos basicos para importar el OpenMP haciendo uso de **gcc**.
 
 ```sh
 $  gcc main.c -fopenmp
