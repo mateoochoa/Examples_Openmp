@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <omp.h>
 
-void avg();
+void avg_round_robin();
 void avg_reduction();
 
 int main() {
-//    avg();
+    avg_round_robin();
     avg_reduction();
     return 0;
 }
@@ -33,7 +33,7 @@ void avg_round_robin() {
     double timer_elapsed = omp_get_wtime() - timer_start;
     tavg = tavg / N;
 
-    printf("%f took: %f\n", tavg, timer_elapsed);    
+    printf("threads: %d, avg_round: %f took: %f s\n", omp_get_max_threads(),tavg, timer_elapsed);    
     //     1 threads took 2.1
     //     4 threads took 0.7
     //    48 threads took 0.65
@@ -55,7 +55,7 @@ void  avg_reduction() {
     double timer_elapsed = omp_get_wtime() - timer_start;
     tavg = tavg / N;
 
-    printf("%f took: %f\n", tavg, timer_elapsed);    
+    printf("threads: %d, avg_reduction: %f took: %f s\n", omp_get_max_threads(),tavg, timer_elapsed);    
     //     1 threads took 2.1
     //     4 threads took 0.69
     //    48 threads took 0.65
