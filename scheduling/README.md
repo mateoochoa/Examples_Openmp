@@ -15,7 +15,7 @@ No existe un orden particular en el que se distribuyan los fragmentos a los subp
 El tipo de programación schedule(auto) delega la decisión de la programación al compilador y/o al sistema de ejecución.
 
 
-[![Dynamic](https://lh6.googleusercontent.com/ielRvFmq7IA6Dgg6H71eLC7AgQTuGjotawFuXYLRioMBU5A9x5NXlaU88s-G1LhPq0Gfajy05bwlMhJFwIas=w1366-h670)](https://github.com/mateoochoa/Examples_Openmp)
+[![Dynamic](http://drive.google.com/uc?export=view&id=1esurMV4ZNn6xXMj7mTsOlpVcBgoCtGdj)](https://github.com/mateoochoa/Examples_Openmp)
 [![Static](https://lh3.googleusercontent.com/-dDn5cB3KBBkf2Kp_6hIk6ywVhd_sspe1LQafVv-KFx1Z19Nax0f07b8IUpnnkb1d-2holIpLxJZAGOPwllw=w1366-h670)](https://github.com/mateoochoa/Examples_Openmp)
 [![Auto](https://lh5.googleusercontent.com/Cf2czzAFyIh5Zc65ecY6YbJMfMmpwiTpOiKKiur-SwqUntuSQ_acyICPj1f9vqfyjVe9O4brjU06vkF0ZSLF=w1366-h670)](https://github.com/mateoochoa/Examples_Openmp)
 
