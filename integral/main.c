@@ -1,13 +1,31 @@
-#include <iostream>
+/*************************************************************************************/
+/*            Author: Mustafa Atik                                                   */
+/*          Location: Berlin / Germany                                               */
+/*           Contact: muatik@gmail.com                                               */
+/*  Code reviewed by: Miguel Angel and Luis Mateo                                    */
+/*                                                                                   */
+/*                                                                                   */
+/*      Description:                                                                 */
+/* This code goes to demonstrate how take advantages on the overhead using some      */
+/* clauses suppressing career conditions. The objective is get the result of a       */
+/* math function that generates an integral, and sum going to be into parallel       */
+/* region. Also are going to delivered the iterations as subprocess to the OS.       */
+/*                                                                                   */
+/*************************************************************************************/
+
+
+#include <stdio.h>
 #include <omp.h>
 
+/************************** Integration functions ************************************/
 void integral_roundrobin();
 void integral_atomic();
 void integral_reduction();
 void integral_better_reduction();
+/*************************************************************************************/
 
 int main() {
-//  integral_roundrobin();
+    integral_roundrobin();
     integral_atomic();
     integral_reduction();
     integral_better_reduction();
@@ -24,7 +42,6 @@ void integral_roundrobin() {
     step = 1.0 / (double) num_steps;
     double timer_start = omp_get_wtime();
     omp_set_num_threads(NTHREADS);
-
     #pragma omp parallel
     {
         int i, id, lnthreads;
@@ -32,21 +49,24 @@ void integral_roundrobin() {
 
         lnthreads = omp_get_num_threads();
         id = omp_get_thread_num();
+
         if (id == 0)
             nthreads = lnthreads;
-
+/***************************** Making calculation ***********************************/
         for (i = id, sum[id]=0; i < num_steps; i+=lnthreads) {
             x = (i+0.5) * step;
             sum[id] += 4.0 / (1.0 + x*x);
         }
-
+/*************************************************************************************/
     }
+/*************************** Generating the result ***********************************/
     for (int i = 0; i < nthreads; ++i) {
         pi += sum[i] * step;
     }
+/*************************************************************************************/
 
     double timer_took = omp_get_wtime() - timer_start;
-    std::cout << pi << " took " << timer_took;
+    printf("%f took %f.\n", pi, timer_took);
 
     // 1 threads  --> 0.57 seconds.
     // 4 threads  --> 1.34 seconds.
@@ -78,14 +98,14 @@ void integral_atomic() {
             x = (i+0.5) * step;
             sum += 4.0 / (1.0 + x*x);
         }
-
+/*************************** Generating the result ***********************************/
         #pragma omp atomic
         pi += sum * step;
-
+/*************************************************************************************/
     }
 
     double timer_took = omp_get_wtime() - timer_start;
-    std::cout << pi << " took " << timer_took;
+    printf("%f took %f.\n", pi, timer_took);
     // 1 threads  --> 0.53 seconds.
     // 4 threads  --> 0.25 seconds.
     // 24 threads --> 0.24 seconds.
@@ -112,11 +132,11 @@ void integral_reduction() {
         int x = (i+0.5) * step;
         sum += 4.0 / (1.0 + x*x);
     }
-
+/*************************** Generating the result ***********************************/
     pi = sum * step;
-
+/*************************************************************************************/
     double timer_took = omp_get_wtime() - timer_start;
-    std::cout << pi << " took " << timer_took;
+    printf("%f took %f.\n", pi, timer_took);
     // 1 threads  --> 0.55 seconds.
     // 4 threads  --> 0.24 seconds.
     // 24 threads --> 0.24 seconds.
@@ -142,11 +162,11 @@ void integral_better_reduction() {
         x = (i+0.5) * step;
         sum += 4.0 / (1.0 + x*x);
     }
-
+/*************************** Generating the result ***********************************/
     pi = sum * step;
-
+/*************************************************************************************/
     double timer_took = omp_get_wtime() - timer_start;
-    std::cout << pi << " took " << timer_took;
+    printf("%f took %f.\n", pi, timer_took);
     // 1 threads  --> 0.55 seconds.
     // 4 threads  --> 0.24 seconds.
     // 24 threads --> 0.24 seconds.
