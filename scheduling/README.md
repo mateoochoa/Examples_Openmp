@@ -21,4 +21,5 @@ El tipo de programación schedule(auto) delega la decisión de la programación 
 
 ### Detalles
 
-La primera tarea que realiza el for, al igual que las demas, sera programar mediante forma estatica y con una segmentacion automatica por el compilador o entorno, una ejecucion con carga uniformemente repartida hacia los hilos dispuestos por el algoritmo. De manera que cada hilo tendra un similar numero de iteraciones en cada region paralela.
+La primera tarea que realiza el for, al igual que las demas, sera programar mediante forma estatica o dinamica, y con una segmentacion automatica por el compilador o entorno, una ejecucion con carga uniformemente repartida hacia los hilos dispuestos por el algoritmo. De manera que cada hilo tendra un similar numero de iteraciones en cada region paralela.
+Algunas de estas programaciones tienen una dimension de _chunk_ definifa, por tanto los hilos tendran cargas diferentes.
