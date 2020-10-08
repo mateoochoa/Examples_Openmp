@@ -2,7 +2,7 @@
 
 En esta seccion se desarrolla el manejo de variables privadas inicializadas o no, para su implementacion dentro de la region paralela (Una vez realizado el Fork).
 
-En la implementacion de directivas est´a:
+En la implementacion de clausulas para variables:
 
 - **private:** Un nuevo objeto del mismo tipo y tamaño se declara una vez para cada subproceso en el equipo, y el nuevo objeto ya no se almacena asociado con el objeto original.
 - **firstprivate:** Las copias privadas de las variables se inicializan desde el objeto original existente antes de la construcción paralela.
