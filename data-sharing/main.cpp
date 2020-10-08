@@ -1,30 +1,30 @@
-/**************************************************************************/
-/*            Author: Mustafa Atik					    */
-/*          Location: Berlin / Germany				    */
-/*           Contact: muatik@gmail.com				    */
-/*  Code reviewed by: Miguel Angel and Luis Mateo			    */
-/*  									    */
-/*									    */
-/*	Description:							    */
-/* This codes show throught a implementation, how works the directives    */
-/* private and firstprivate from OpenMP Library. When the code runs, will */
-/* show you the results about the shared and privated variables, on para- */
-/* llel region and out of there.				            */
-/*								            */
-/**************************************************************************/
+/*************************************************************************************/
+/*            Author: Mustafa Atik                                                   */
+/*          Location: Berlin / Germany                                               */
+/*           Contact: muatik@gmail.com                                               */
+/*  Code reviewed by: Miguel Angel and Luis Mateo                                    */
+/*                                                                                   */
+/*                                                                                   */
+/*      Description:                                                                 */
+/* This codes show throught a implementation, how works the directives               */
+/* private and firstprivate from OpenMP Library. When the code runs, will            */
+/* show you the results about the shared and privated variables, on para-            */
+/* llel region and out of there.                                                     */
+/*                                                                                   */
+/*************************************************************************************/
 
 #include <iostream>
 #include <omp.h>
 
-/*************************** Function designed to this job ****************/
+/*************************** Function designed to this job ***************************/
 void compare_cases();  
-/**************************************************************************/
+/*************************************************************************************/
 
 using namespace std;
 
-/************************* Global variable ********************************/
+/******************************** Global variable ************************************/
 double G = 2.1;
-/**************************************************************************/
+/*************************************************************************************/
 
 
 int main() {
@@ -36,11 +36,11 @@ void compare_cases() {
 
     int a=1, b=2, c=3, t=4;
 
-/******************************* Defining available threads ***************/
+/******************************* Defining available threads **************************/
     omp_set_num_threads(3);
-/**************************************************************************/
+/*************************************************************************************/
 
-/**************************** Forking threads with conditions *************/ 
+/**************************** Forking threads with conditions ************************/
 #pragma omp parallel private(a), firstprivate(b)
     {
         // a will be private and, but not be initialized
@@ -61,7 +61,9 @@ void compare_cases() {
         c = 23;
         t = 24;
     }
-/************************* Join threads in order to just one *************/
+
+/************************ Join threads in order to just one **************************/
+
     printf("\nOut of the parallel region\n");
     printf("thread id: %d, a: %d, b: %d, c: %d, t: %d, G: %f, \n", omp_get_thread_num(), a, b, c, t, G);
 
