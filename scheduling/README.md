@@ -16,8 +16,8 @@ El tipo de programación schedule(auto) delega la decisión de la programación 
 
 
 [![Dynamic](http://drive.google.com/uc?export=view&id=1esurMV4ZNn6xXMj7mTsOlpVcBgoCtGdj)](https://github.com/mateoochoa/Examples_Openmp)
-[![Static](https://lh3.googleusercontent.com/-dDn5cB3KBBkf2Kp_6hIk6ywVhd_sspe1LQafVv-KFx1Z19Nax0f07b8IUpnnkb1d-2holIpLxJZAGOPwllw=w1366-h670)](https://github.com/mateoochoa/Examples_Openmp)
-[![Auto](https://lh5.googleusercontent.com/Cf2czzAFyIh5Zc65ecY6YbJMfMmpwiTpOiKKiur-SwqUntuSQ_acyICPj1f9vqfyjVe9O4brjU06vkF0ZSLF=w1366-h670)](https://github.com/mateoochoa/Examples_Openmp)
+[![Static](http://drive.google.com/uc?export=view&id=1lQKHnt7_gVIdYELDLWDThwra9BpgeRqf)](https://github.com/mateoochoa/Examples_Openmp)
+[![Auto](http://drive.google.com/uc?export=view&id=1mfi9l84NkkYkv5ApP7Isv4uNHsZJeBu4)](https://github.com/mateoochoa/Examples_Openmp)
 
 ### Detalles
 
