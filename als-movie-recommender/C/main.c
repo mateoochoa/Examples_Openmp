@@ -2,9 +2,11 @@
 /*            Author: Mustafa Atik                                                   */
 /*          Location: Berlin / Germany                                               */
 /*           Contact: muatik@gmail.com                                               */
-/*  Code reviewed by: Miguel Angel and Luis Mateo                                    */
+/*        Implemented in C by:Miguel Angel and Luis Mateo                            */
+/*      email: miguelan.ruiz@correo.usa.edu.co and luis.ochoa3@correo.usa.edu.co     */
 /*                                                                                   */
-/*                                                                                   */
+/*      Description                                                                  */
+/*  This code is used to recommend a movie to the users based on their history.      */
 
 #include "binary_library.h"
 #include <stdio.h>
@@ -21,7 +23,7 @@ void als(u_int8_t * ptr, int maxUserId, int maxMovieId, int rank, int threadNumb
 int main(){        
   factorize();
 }
-
+/* Function to fill a matrix with the values on a extern file */
 void load_csv(const char path [],u_int8_t * ptr ){
     char line [100];
     u_int8_t i = 0;
@@ -36,6 +38,7 @@ void load_csv(const char path [],u_int8_t * ptr ){
     fclose(indata);
 }
 
+/* Function to define the al's parameters*/
 void factorize(){
     char path [] = "../data.txt";
     u_int8_t ratings [28][3];
@@ -51,6 +54,7 @@ void factorize(){
 }
 
 void als(u_int8_t * ratings, int maxUserId, int maxMovieId, int rank, int threadNumber){
+    /*Creates 7 matrix to make the operations*/
     struct C_MatrixXd *U, *M, *A, *W, *row, *col, *aux;
     int i =0, iteration = 0, j = 0, k=0;
     int ui = 0, mi = 0, ri = 0, pel [maxUserId];
@@ -59,6 +63,7 @@ void als(u_int8_t * ratings, int maxUserId, int maxMovieId, int rank, int thread
     double errorHistory [150], tempU [4] = {0,0,0,0}, max [maxUserId];
     int maxIteration = 2000;
 
+    /* Defines the size of each matrix and it fill ithem with randmo values or zeros*/
     U = MatrixXd_new(maxUserId, rank);
     M = MatrixXd_new(rank, maxMovieId);    
     MatrixXd_set_random(U);
@@ -69,21 +74,20 @@ void als(u_int8_t * ratings, int maxUserId, int maxMovieId, int rank, int thread
     MatrixXd_set_zero(A);
     MatrixXd_set_zero(W);
 
-    /*for(i = 0; i< 29;i++){
-        printf("%d - %d - %d\n",*(ratings+3*i),*(ratings+3*i+1),*(ratings+3*i+2));
-    }*/        
+    /*  Changes the coefficients of these matrix with values on the file*/
     for(i = 0; i < size ; ++i){
-        ui = *(ratings+3*i) -1;
-        mi = *(ratings+3*i+1) -1;
-        ri = *(ratings+3*i+2);
+        ui = *(ratings+3*i) -1; /*User's Id*/
+        mi = *(ratings+3*i+1) -1;/*Movie's Id*/
+        ri = *(ratings+3*i+2); /*rating of the movie by the user*/
         MatrixXd_set_coeff(A, ui, mi, ri);
         MatrixXd_set_coeff(W, ui, mi, 1);
     }
 
-      
+    /*Auxiliar matrix for operations*/
     aux = MatrixXd_new(maxUserId, maxMovieId);   
 
-    start = omp_get_wtime();    
+    start = omp_get_wtime();
+    /*  Calculates the recommendations 2000 times with fixed error based in the historical error*/
     for(iteration = 0 ; iteration < maxIteration ; ++iteration){
 
         #pragma omp parallel for num_threads(threadNumber) schedule(static) private(ui, mi, ri, error, tempU)
@@ -102,7 +106,7 @@ void als(u_int8_t * ratings, int maxUserId, int maxMovieId, int rank, int thread
                 MatrixXd_set_coeff(U, ui, j, tempU[j]);
             }
         }
-        
+        /* Each 15 iteration the program will save the error in an histoical array to print them later*/
         if (iteration % ((int) maxIteration / 15) == 0) {
             eta *= 0.8;
             errorHistory[k] = 0;
@@ -116,15 +120,16 @@ void als(u_int8_t * ratings, int maxUserId, int maxMovieId, int rank, int thread
             k++;
         }
     }
-
+    /*  Prints the historical error*/
     elapsed = omp_get_wtime() - start;
     printf("elapse: %f\n",elapsed);        
     for ( j = 0; j < k; ++j) {
         printf("error: %f\n", errorHistory[j]);
     }
-
+    /*  Print the matrix that its rows represent each user and its columns represent each movie and the
+        value in it represent the posibility of the recommendation to the user*/
     Map_MatrixXd_print(aux);
-
+    /*  Finally, it prints the movie to recommend for each user*/
     for(i=0; i < maxUserId ; i++){
         max[i] = 0;
         for(j = 0 ; j< maxMovieId ; j++){
