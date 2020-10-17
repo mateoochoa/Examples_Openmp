@@ -1,0 +1,7 @@
+1) experimentos para comparar los algoritmos bajo las mismas cargas en diferentes máquinas
+1000 2000 3000
+2) validación y verificación de los algoritmos (opcional: cambiar para que cumplan con lo requerido)
+3) Subirlo al repositorio en modo privado
+4) Documento tipo articulo
+
+Minima cantidad de talbas, preferible el uso de gráficas
