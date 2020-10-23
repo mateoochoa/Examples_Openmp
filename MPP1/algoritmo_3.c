@@ -1,5 +1,5 @@
 /***************************************************************************************************/
-/*           Archivo: algoritmo_2.c                                                                    */
+/*           Archivo: algoritmo_3.c                                                                    */
 /*             Autor: Miguel Angel and Luis Mateo                                                  */
 /*             Email: miguelan.ruiz@correo.usa.edu.co; luis.ochoa3@correo.usa.edu.co               */
 /*         Ubicacion: Bogota / Colombia                                                            */
@@ -159,15 +159,5 @@ int main (int argc, char **argv)
 }
   /*Invocacion de impresion de funcion */
   mpEnd();
-  printf("Resultados\n");
-  int going = 0;
-  double  *a, *b, *c;
-  a = MEM_CHUNK;
-  b = a + N*N;
-  c = b + N*N;
-  for (int k=0; k<N; k++)
-    for (int j=0; j<N; j++) {
-      printf("%d,%d: %f \n", k, j,c[j+k*N]);
-    }
   return 0;
 }
