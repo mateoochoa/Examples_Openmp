@@ -132,12 +132,17 @@ int main (int argc, char **argv)
       pA = a+(i*SZ); pB = b+(j*SZ);
       for (k=SZ; k>0; k=k-2, pA = pA+2, pB = pB+2){
         double a0, a1, a2, a3, b0,b1, b2, b3;
+	if(k==1){a0 = *pA; a2 = *(pA+SZ); b0 = *pB; b2 = *(pB+SZ); 
+	c0 += a0*b0; c1 += a0*b2;c2 += a2*b0;c3 += a2*b2;}
+	else{
 	a0 = *pA; a1 = *(pA+1); a2 = *(pA+SZ); a3 = *(pA+SZ+1);
         b0 = *pB; b1 = *(pB+1); b2 = *(pB+SZ); b3 = *(pB+SZ+1);
+
 	c0 += a0*b0 + a1*b1; 
 	c1 += a0*b2 + a1*b3; 	
 	c2 += a2*b0 + a3*b1; 	
 	c3 += a2*b2 + a3*b3;  
+	}
       }
       pB = c + i*SZ + j;
       if(j == SZ-1){*pB = c0; *(pB+SZ) = c2; break;}
